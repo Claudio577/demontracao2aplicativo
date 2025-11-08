@@ -64,10 +64,10 @@ st.markdown("### 📱 Telas do Aplicativo")
 col1, col2 = st.columns(2)
 
 with col1:
-    st.image("login_screen1.png", caption="🔐 Tela de Login — EduFin App", use_container_width=True)
+    st.image("login_screen2.png", caption="🔐 Tela de Login — EduFin App", use_container_width=True)
 
 with col2:
-    st.image("main_screen1.png", caption="📊 Tela Principal — Pós Login", use_container_width=True)
+    st.image("main_screen2.png", caption="📊 Tela Principal — Pós Login", use_container_width=True)
 
 
 
