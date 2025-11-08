@@ -1,18 +1,18 @@
 import streamlit as st
-from PIL import Image
+from PIL import Image, ImageChops
 
-# ===============================
-# ⚙️ Configuração da página
-# ===============================
+# =====================================
+# ⚙️ CONFIGURAÇÃO DA PÁGINA
+# =====================================
 st.set_page_config(
     page_title="EduFin AI Cloud — Inteligência Financeira Pessoal",
     page_icon="💡",
     layout="wide"
 )
 
-# ===============================
-# 🎨 Estilo visual tipo Dribbble
-# ===============================
+# =====================================
+# 🎨 ESTILO VISUAL TIPO DRIBBBLE
+# =====================================
 st.markdown("""
 <style>
 body {
@@ -55,20 +55,37 @@ a:hover {
 </style>
 """, unsafe_allow_html=True)
 
-# ===============================
-# 🧠 Cabeçalho principal
-# ===============================
+# =====================================
+# 🧩 FUNÇÃO AUXILIAR — REMOVER BORDAS BRANCAS
+# =====================================
+def crop_white_borders(img_path):
+    """Remove automaticamente bordas brancas ou vazias das imagens."""
+    try:
+        img = Image.open(img_path)
+        bg = Image.new(img.mode, img.size, img.getpixel((0, 0)))
+        diff = ImageChops.difference(img, bg)
+        bbox = diff.getbbox()
+        if bbox:
+            img = img.crop(bbox)
+        return img
+    except FileNotFoundError:
+        st.warning(f"⚠️ Imagem não encontrada: {img_path}")
+        return None
+
+# =====================================
+# 🧠 CABEÇALHO PRINCIPAL
+# =====================================
 st.markdown("<h1 style='text-align:center;'>💡 EduFin AI Cloud</h1>", unsafe_allow_html=True)
 st.markdown("<h4 style='text-align:center; color:#666;'>Inteligência Financeira com IA e Firebase</h4>", unsafe_allow_html=True)
-st.markdown("<p style='text-align:center; color:#777;'>Analise sua saúde financeira com aprendizado de máquina em tempo real.</p>", unsafe_allow_html=True)
+st.markdown("<p style='text-align:center; color:#777;'>Aprenda e simule sua saúde financeira com tecnologia e aprendizado de máquina.</p>", unsafe_allow_html=True)
 
-# ===============================
-# 🧩 Layout principal (duas colunas)
-# ===============================
+# =====================================
+# 🧱 BLOCO PRINCIPAL COM 2 COLUNAS
+# =====================================
 st.markdown('<div class="main-container">', unsafe_allow_html=True)
 col1, col2 = st.columns([1.2, 0.8])
 
-# --- Coluna 1: descrição do projeto ---
+# --- COLUNA 1: DESCRIÇÃO E IMAGENS ---
 with col1:
     st.markdown("## 🧠 Como funciona")
     st.markdown("""
@@ -89,16 +106,19 @@ with col1:
     """)
 
     st.markdown("## 📱 Telas do App Android")
-    try:
-        col_a, col_b = st.columns(2)
-        with col_a:
-            st.image("login_screen2.png", caption="🔐 Tela de Login", use_column_width=True)
-        with col_b:
-            st.image("main_screen2.png", caption="📊 Tela Principal", use_column_width=True)
-    except Exception as e:
-        st.warning(f"⚠️ Erro ao carregar imagens: {e}")
+    col_a, col_b = st.columns(2)
 
-# --- Coluna 2: mini simulação ---
+    login_img = crop_white_borders("login_screen2.png")
+    main_img = crop_white_borders("main_screen2.png")
+
+    with col_a:
+        if login_img:
+            st.image(login_img, caption="🔐 Tela de Login", use_column_width=True)
+    with col_b:
+        if main_img:
+            st.image(main_img, caption="📊 Tela Principal", use_column_width=True)
+
+# --- COLUNA 2: MINI SIMULAÇÃO ---
 with col2:
     st.markdown("### 🧩 Mini Simulação — Teste sua Saúde Financeira")
 
@@ -106,18 +126,58 @@ with col2:
     gastos = st.slider("💳 Gastos mensais (R$)", 0, 20000, 3000)
     dividas = st.slider("📉 Dívidas (R$)", 0, 50000, 1000)
     poupanca = st.slider("🏦 Poupança (R$)", 0, 50000, 2000)
-    idade = st.slider("🎂 Idade", 18, 80, 30)
     investimentos = st.slider("📈 Investimentos (R$)", 0, 50000, 1000)
 
-    # Mock simples de cálculo de "score"
     score = (renda - gastos - dividas + poupanca + investimentos) / (renda + 1)
+
+    st.markdown("---")
+    st.markdown("#### Resultado da Simulação")
 
     if score < 0.3:
         st.error("🔴 Baixa Saúde Financeira")
+        st.metric("Índice de Equilíbrio", f"{score*100:.0f}%", "-15%", delta_color="inverse")
     elif score < 0.6:
         st.warning("🟡 Média Saúde Financeira")
+        st.metric("Índice de Equilíbrio", f"{score*100:.0f}%", "+5%", delta_color="off")
     else:
         st.success("🟢 Alta Saúde Financeira")
+        st.metric("Índice de Equilíbrio", f"{score*100:.0f}%", "+10%", delta_color="normal")
 
 st.markdown('</div>', unsafe_allow_html=True)
+
+# =====================================
+# 🧭 SEÇÃO EDUCACIONAL
+# =====================================
+st.markdown("---")
+st.header("📘 Educação Financeira e Inteligência Artificial")
+
+col_edu1, col_edu2, col_edu3 = st.columns(3)
+
+with col_edu1:
+    st.info("""
+    ### 💡 Visão Educacional  
+    O **EduFin AI Cloud** ajuda pessoas a entenderem seu **equilíbrio financeiro pessoal**,  
+    tornando o aprendizado de finanças mais simples, visual e prático.
+    """)
+
+with col_edu2:
+    st.warning("""
+    ### ⚙️ Funcionamento
+    1. O usuário insere dados financeiros.  
+    2. O modelo calcula o **índice de saúde**.  
+    3. O app apresenta **mensagens intuitivas e coloridas**.
+    """)
+
+with col_edu3:
+    st.success("""
+    ### 🎨 Design Educacional  
+    O layout foi criado com base em **UX visual e cores** para facilitar o entendimento  
+    e estimular a interação de alunos e educadores.
+    """)
+
+# =====================================
+# 📄 RODAPÉ
+# =====================================
+st.markdown("---")
+st.caption("© 2025 EduFin AI Cloud — Projeto de Demonstração com IA, Firebase e Streamlit")
 
