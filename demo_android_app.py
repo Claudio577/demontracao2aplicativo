@@ -79,6 +79,24 @@ st.markdown("<h4 style='text-align:center; color:#FF5B6A;'>Inteligência Finance
 st.markdown("<p style='text-align:center; color:#777;'>Aprenda e simule sua saúde financeira com tecnologia e aprendizado de máquina.</p>", unsafe_allow_html=True)
 
 # =====================================
+# ⚙️ DESCRIÇÃO E APLICAÇÃO NO MERCADO
+# =====================================
+st.markdown("---")
+st.markdown("## 🌍 <span style='color:#6C63FF;'>Aplicações e Contexto do Projeto</span>", unsafe_allow_html=True)
+st.markdown("""
+O **EduFin AI Cloud** combina **educação financeira** e **inteligência artificial** para ajudar pessoas e instituições a compreenderem melhor sua **saúde financeira**.  
+A aplicação utiliza IA para simular e avaliar o equilíbrio entre **renda, gastos, dívidas e investimentos**, fornecendo um diagnóstico claro e visual.
+
+### 💼 Onde o projeto pode ser aplicado:
+- **Educação e Escolas:** ensino de educação financeira com simulações em tempo real.  
+- **Bancos e Fintechs:** criação de módulos de análise de risco e perfis financeiros.  
+- **Consultorias Financeiras:** suporte a decisões personalizadas com base em dados.  
+- **Projetos Sociais:** conscientização sobre controle de gastos e importância da poupança.  
+
+O sistema serve tanto como ferramenta **didática** quanto **analítica**, mostrando como a IA pode ser aplicada de forma **acessível e educativa**.
+""")
+
+# =====================================
 # 🧱 BLOCO PRINCIPAL COM 2 COLUNAS
 # =====================================
 st.markdown('<div class="main-container">', unsafe_allow_html=True)
@@ -145,10 +163,19 @@ with col2:
 st.markdown('</div>', unsafe_allow_html=True)
 
 # =====================================
-# 🧭 SEÇÃO EDUCACIONAL — COM TÍTULOS COLORIDOS
+# 🧭 SEÇÃO EDUCACIONAL — COM GRADIENTE E CORES VIVAS
 # =====================================
 st.markdown("---")
-st.header("🎓 <span style='color:#6C63FF;'>Educação Financeira e Inteligência Artificial</span>", unsafe_allow_html=True)
+st.markdown("""
+<h2 style='
+  text-align:center;
+  background: linear-gradient(90deg, #6C63FF, #4B7BE5);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+'>
+🎓 Educação Financeira e Inteligência Artificial
+</h2>
+""", unsafe_allow_html=True)
 
 col_edu1, col_edu2, col_edu3 = st.columns(3)
 
