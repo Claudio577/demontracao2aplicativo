@@ -11,12 +11,10 @@ st.set_page_config(
 )
 
 # ===============================
-# 🎨 Estilo visual moderno (Dribbble-like)
+# 🎨 Estilo visual tipo Dribbble
 # ===============================
-# Mantendo o CSS para o layout clean e moderno, conforme o código fornecido.
 st.markdown("""
 <style>
-/* Configuração de tipografia e fundo */
 body {
     background-color: #f8f9fb;
     color: #222;
@@ -26,7 +24,6 @@ h1, h2, h3, h4 {
     color: #111;
     font-weight: 600;
 }
-/* Estilo do container principal */
 .main-container {
     background: white;
     padding: 2.5rem 3rem;
@@ -34,7 +31,6 @@ h1, h2, h3, h4 {
     box-shadow: 0 6px 25px rgba(0,0,0,0.06);
     margin-top: 2rem;
 }
-/* Estilo dos botões */
 .stButton>button {
     border-radius: 8px;
     background-color: #FF5B6A;
@@ -60,46 +56,11 @@ a:hover {
 """, unsafe_allow_html=True)
 
 # ===============================
-# CABEÇALHO PRINCIPAL E TECNOLOGIAS (Clean, sem emotis no título)
+# 🧠 Cabeçalho principal
 # ===============================
-st.markdown("<h1 style='text-align:center;'>EduFin AI Cloud</h1>", unsafe_allow_html=True)
-st.markdown("<h4 style='text-align:center; color:#666;'>Inteligência Financeira Pessoal com Machine Learning</h4>", unsafe_allow_html=True)
-st.markdown("---")
-
-# Informações de tecnologia solicitadas (no início e simples)
-st.markdown("### ⚙️ Tecnologias Principais do Projeto")
-st.markdown("""
-- **Streamlit**: Interface interativa de fácil prototipação e implementação.
-- **Firebase Auth + Firestore**: Gerenciamento de login e banco de dados NoSQL em tempo real.
-- **TensorFlow / Keras**: Ferramentas para construção de rede neural preditiva.
-- **Scikit-Learn**: Utilizado para pré-processamento de dados e métricas de desempenho do modelo.
-""")
-st.markdown("---")
-
-
-# ===============================
-# 🌐 Utilidades Atuais das Tecnologias
-# ===============================
-st.markdown("## 🌐 Aplicações e Utilidades Atuais")
-st.markdown("""
-O conjunto de tecnologias utilizado neste projeto (Streamlit, Firebase, Keras, Scikit-Learn) é a base para diversas aplicações modernas:
-
-1.  **Streamlit e Prototipação Rápida:**
-    * **Utilidade:** Permite que cientistas de dados e desenvolvedores criem **dashboards interativos de IA** e **MVPs (Produtos Mínimos Viáveis)** rapidamente, transformando modelos de *machine learning* complexos em ferramentas de negócios acessíveis.
-    * **Exemplos:** Dashboards de monitoramento de saúde de servidores, ferramentas de visualização de dados geográficos.
-
-2.  **Firebase (Auth e Firestore) para Back-end:**
-    * **Utilidade:** Oferece um back-end gerenciado, facilitando a **escalabilidade de aplicações** com autenticação segura de usuários e persistência de dados em tempo real.
-    * **Exemplos:** Aplicativos móveis e web de grande escala, plataformas de colaboração em tempo real, jogos com ranking de usuários.
-
-3.  **TensorFlow / Keras e Scikit-Learn (O Coração da IA):**
-    * **Utilidade:** É a espinha dorsal para a criação de modelos preditivos e analíticos em quase todos os setores.
-    * **Exemplos:**
-        * **Finanças:** Detecção de fraudes em transações, previsão de risco de inadimplência (como no EduFin).
-        * **Saúde:** Análise de imagens médicas para diagnóstico automático, previsão de surtos de doenças.
-        * **Indústria:** Manutenção preditiva de equipamentos (identificar falhas antes que ocorram).
-""")
-st.markdown("---")
+st.markdown("<h1 style='text-align:center;'>💡 EduFin AI Cloud</h1>", unsafe_allow_html=True)
+st.markdown("<h4 style='text-align:center; color:#666;'>Inteligência Financeira com IA e Firebase</h4>", unsafe_allow_html=True)
+st.markdown("<p style='text-align:center; color:#777;'>Analise sua saúde financeira com aprendizado de máquina em tempo real.</p>", unsafe_allow_html=True)
 
 # ===============================
 # 🧩 Layout principal (duas colunas)
@@ -109,57 +70,59 @@ col1, col2 = st.columns([1.2, 0.8])
 
 # --- Coluna 1: descrição do projeto ---
 with col1:
-    st.markdown("## 🧠 Sobre o Projeto EduFin")
+    st.markdown("## 🧠 Como funciona")
     st.markdown("""
-    O EduFin AI Cloud é um demonstrativo que utiliza aprendizado de máquina (ML) para analisar a saúde financeira pessoal em tempo real. A aplicação simula o fluxo completo de uma solução real, desde o cadastro do usuário até a análise preditiva.
-    """)
-    
-    st.markdown("## 🛠️ Fluxo de Análise da Saúde Financeira")
-    st.markdown("""
-    1. O usuário insere seus dados (renda, gastos, investimentos, etc.).
-    2. O sistema de ML calcula um índice de equilíbrio financeiro.
-    3. O resultado é classificado para indicar o nível de risco e a necessidade de ação.
-    
-    **Classificação do Risco:**
-    - **🔴 Risco Alto:** Necessidade de intervenção urgente.
-    - **🟡 Risco Moderado:** Requer ajustes e otimização.
-    - **🟢 Risco Baixo:** Excelente saúde financeira.
+    1. Faça login com seu e-mail.  
+    2. Insira seus dados financeiros (renda, gastos, dívidas, etc).  
+    3. A IA analisa e retorna sua **saúde financeira**:
+       - 🔴 Baixa  
+       - 🟡 Média  
+       - 🟢 Alta  
     """)
 
-    # Substituindo a seção de imagens por um placeholder limpo
-    st.markdown("## 📱 Representação Visual")
-    st.info("Aqui seriam exibidas as interfaces de usuário do aplicativo, como a tela de Login e a tela de Simulação, para demonstrar o design moderno e limpo.")
+    st.markdown("## ⚙️ Tecnologias usadas")
+    st.markdown("""
+    - **Streamlit** → Interface interativa  
+    - **Firebase Auth + Firestore** → Login e banco de dados  
+    - **TensorFlow / Keras** → Rede neural preditiva  
+    - **Scikit-Learn** → Pré-processamento e métricas
+    """)
 
-# --- Coluna 2: mini simulação (mantendo o uso de cores) ---
+    st.markdown("## 📱 Telas do App Android")
+    try:
+        col_a, col_b = st.columns(2)
+        with col_a:
+            st.image("login_screen2.png", caption="🔐 Tela de Login", use_column_width=True)
+        with col_b:
+            st.image("main_screen2.png", caption="📊 Tela Principal", use_column_width=True)
+    except Exception as e:
+        st.warning(f"⚠️ Erro ao carregar imagens: {e}")
+
+# --- Coluna 2: mini simulação ---
 with col2:
-    st.markdown("### 📊 Mini Simulação — Teste seu Equilíbrio")
+    st.markdown("### 🧩 Mini Simulação — Teste sua Saúde Financeira")
 
-    # Sliders para simulação de dados
-    renda = st.slider("Renda mensal (R$)", 1000, 20000, 5000)
-    gastos = st.slider("Gastos mensais (R$)", 0, 20000, 3000)
-    dividas = st.slider("Dívidas (R$)", 0, 50000, 1000)
-    poupanca = st.slider("Poupança (R$)", 0, 50000, 2000)
-    idade = st.slider("Idade", 18, 80, 30)
-    investimentos = st.slider("Investimentos (R$)", 0, 50000, 1000)
+    renda = st.slider("💰 Renda mensal (R$)", 500, 20000, 5000)
+    gastos = st.slider("💳 Gastos mensais (R$)", 0, 20000, 3000)
+    dividas = st.slider("📉 Dívidas (R$)", 0, 50000, 1000)
+    poupanca = st.slider("🏦 Poupança (R$)", 0, 50000, 2000)
+    idade = st.slider("🎂 Idade", 18, 80, 30)
+    investimentos = st.slider("📈 Investimentos (R$)", 0, 50000, 1000)
 
     # Mock simples de cálculo de "score"
-    # Fator de equilíbrio: (Renda + Poupança + Investimentos) / (Gastos + Dívidas)
-    
-    # Adicionando um pequeno valor ao denominador para evitar divisão por zero
-    denominador = gastos + dividas + 1 
-    score = (renda + poupanca + investimentos) / (denominador)
+    score = (renda - gastos - dividas + poupanca + investimentos) / (renda + 1)
 
-    st.markdown("---")
-    st.markdown("#### Resultado da Simulação")
-
-    # Lógica de Classificação Vermelho, Amarelo, Verde
-    if score < 1.0:
-        st.error(f"🔴 Baixa Saúde Financeira (Fator: {score:.2f})")
-    elif score < 2.0:
-        st.warning(f"🟡 Média Saúde Financeira (Fator: {score:.2f})")
+    if score < 0.3:
+        st.error("🔴 Baixa Saúde Financeira")
+    elif score < 0.6:
+        st.warning("🟡 Média Saúde Financeira")
     else:
-        st.success(f"🟢 Alta Saúde Financeira (Fator: {score:.2f})")
-        
-    st.markdown(f"**Margem Líquida Estimada:** R$ {renda - gastos - dividas:.2f}")
+        st.success("🟢 Alta Saúde Financeira")
 
 st.markdown('</div>', unsafe_allow_html=True)
+
+# ===============================
+# 📄 Rodapé
+# ===============================
+st.markdown("---")
+st.caption("© 2025 EduFin AI Cloud — Projeto de Demonstração com IA, Firebase e Streamlit")
