@@ -6,7 +6,6 @@ from PIL import Image, ImageChops
 # =====================================
 st.set_page_config(
     page_title="EduFin AI Cloud — Inteligência Financeira Pessoal",
-    page_icon="💡",
     layout="wide"
 )
 
