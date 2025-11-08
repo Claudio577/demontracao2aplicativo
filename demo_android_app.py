@@ -56,26 +56,19 @@ st.markdown("""
 """)
 
 # ===============================
-# 🎨 Mockup / Captura de tela
+# 🎨 Telas do aplicativo (Mockups)
 # ===============================
-col1, col2 = st.columns([1.2, 0.8])
-with col1:
-    st.markdown("""
-    ### 🧠 Funcionalidades
-    - Cadastro e login com Firebase Authentication  
-    - Armazenamento de dados no Firestore  
-    - Previsão da saúde financeira com modelo Keras  
-    - Interface leve com ícones intuitivos  
-    - Atualização em tempo real via botão 🔁  
+st.markdown("---")
+st.markdown("### 📱 Telas do Aplicativo")
 
-    ### ⚙️ Tecnologias usadas
-    - **Android Studio (Java/Kotlin + XML)**  
-    - **Firebase Authentication / Firestore**  
-    - **TensorFlow Lite (modelo de IA)**  
-    - **Material Design Components**
-    """)
+col1, col2 = st.columns(2)
+
+with col1:
+    st.image("login_screen.png", caption="🔐 Tela de Login — EduFin App", use_container_width=True)
+
 with col2:
-    st.image("app_mockup.png", caption="Tela principal do app EduFin (UI XML)", use_container_width=True)
+    st.image("main_screen.png", caption="📊 Tela Principal — Pós Login", use_container_width=True)
+
 
 # ===============================
 # 💬 Mini Simulação (demo interativa)
