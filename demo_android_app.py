@@ -82,12 +82,12 @@ st.markdown("<p style='text-align:center; color:#777;'>Aprenda e simule sua saú
 # ⚙️ DESCRIÇÃO E APLICAÇÃO NO MERCADO
 # =====================================
 st.markdown("---")
-st.markdown("## 🌍 <span style='color:#6C63FF;'>Aplicações e Contexto do Projeto</span>", unsafe_allow_html=True)
+st.markdown("## <span style='color:#6C63FF;'>Aplicações e Contexto do Projeto</span>", unsafe_allow_html=True)
 st.markdown("""
 O **EduFin AI Cloud** combina **educação financeira** e **inteligência artificial** para ajudar pessoas e instituições a compreenderem melhor sua **saúde financeira**.  
 A aplicação utiliza IA para simular e avaliar o equilíbrio entre **renda, gastos, dívidas e investimentos**, fornecendo um diagnóstico claro e visual.
 
-### 💼 Onde o projeto pode ser aplicado:
+### Onde o projeto pode ser aplicado:
 - **Educação e Escolas:** ensino de educação financeira com simulações em tempo real.  
 - **Bancos e Fintechs:** criação de módulos de análise de risco e perfis financeiros.  
 - **Consultorias Financeiras:** suporte a decisões personalizadas com base em dados.  
@@ -104,7 +104,7 @@ col1, col2 = st.columns([1.2, 0.8])
 
 # --- COLUNA 1: DESCRIÇÃO E IMAGENS ---
 with col1:
-    st.markdown("## 🧠 <span style='color:#6C63FF;'>Como funciona</span>", unsafe_allow_html=True)
+    st.markdown("## <span style='color:#6C63FF;'>Como funciona</span>", unsafe_allow_html=True)
     st.markdown("""
     1. Faça login com seu e-mail.  
     2. Insira seus dados financeiros (renda, gastos, dívidas, etc).  
@@ -114,7 +114,7 @@ with col1:
        - 🟢 Alta  
     """)
 
-    st.markdown("## ⚙️ <span style='color:#FF5B6A;'>Tecnologias usadas</span>", unsafe_allow_html=True)
+    st.markdown("##<span style='color:#FF5B6A;'>Tecnologias usadas</span>", unsafe_allow_html=True)
     st.markdown("""
     - **Streamlit** → Interface interativa  
     - **Firebase Auth + Firestore** → Login e banco de dados  
@@ -122,7 +122,7 @@ with col1:
     - **Scikit-Learn** → Pré-processamento e métricas
     """)
 
-    st.markdown("## 📱 <span style='color:#2ECC71;'>Telas do App Android</span>", unsafe_allow_html=True)
+    st.markdown("## <span style='color:#2ECC71;'>Telas do App Android</span>", unsafe_allow_html=True)
     col_a, col_b = st.columns(2)
 
     login_img = crop_white_borders("login_screen2.png")
@@ -137,7 +137,7 @@ with col1:
 
 # --- COLUNA 2: MINI SIMULAÇÃO ---
 with col2:
-    st.markdown("### 🧩 <span style='color:#F4A261;'>Mini Simulação — Teste sua Saúde Financeira</span>", unsafe_allow_html=True)
+    st.markdown("### <span style='color:#F4A261;'>Mini Simulação — Teste sua Saúde Financeira</span>", unsafe_allow_html=True)
 
     renda = st.slider("💰 Renda mensal (R$)", 500, 20000, 5000)
     gastos = st.slider("💳 Gastos mensais (R$)", 0, 20000, 3000)
@@ -173,21 +173,21 @@ st.markdown("""
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 '>
-🎓 Educação Financeira e Inteligência Artificial
+Educação Financeira e Inteligência Artificial
 </h2>
 """, unsafe_allow_html=True)
 
 col_edu1, col_edu2, col_edu3 = st.columns(3)
 
 with col_edu1:
-    st.markdown("### 💡 <span style='color:#3A86FF;'>Visão Educacional</span>", unsafe_allow_html=True)
+    st.markdown("### <span style='color:#3A86FF;'>Visão Educacional</span>", unsafe_allow_html=True)
     st.info("""
     O **EduFin AI Cloud** ajuda pessoas a entenderem seu **equilíbrio financeiro pessoal**,  
     tornando o aprendizado de finanças mais simples, visual e prático.
     """)
 
 with col_edu2:
-    st.markdown("### ⚙️ <span style='color:#FFB703;'>Funcionamento</span>", unsafe_allow_html=True)
+    st.markdown("### <span style='color:#FFB703;'>Funcionamento</span>", unsafe_allow_html=True)
     st.warning("""
     1. O usuário insere dados financeiros.  
     2. O modelo calcula o **índice de saúde**.  
@@ -195,7 +195,7 @@ with col_edu2:
     """)
 
 with col_edu3:
-    st.markdown("### 🎨 <span style='color:#06D6A0;'>Design Educacional</span>", unsafe_allow_html=True)
+    st.markdown("### <span style='color:#06D6A0;'>Design Educacional</span>", unsafe_allow_html=True)
     st.success("""
     O layout foi criado com base em **UX visual e cores** para facilitar o entendimento  
     e estimular a interação de alunos e educadores.
