@@ -53,7 +53,7 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Corrige cliques invisíveis no topo */
+/* Remove blocos vazios clicáveis */
 [data-testid="stAppViewBlockContainer"] div:empty {
     display: none !important;
 }
@@ -64,7 +64,7 @@ a:hover {
 # 🧠 Cabeçalho principal
 # ===============================
 st.markdown("""
-<h1 style='text-align:center; margin-bottom: 0;'>💡 EduFin AI Cloud</h1>
+<h1 style='text-align:center; margin-bottom: 0;'>EduFin AI Cloud</h1>
 <h4 style='text-align:center; color:#666; margin-top: 8px;'>
 Aplicativo de Inteligência Financeira com IA e Firebase
 </h4>
@@ -74,6 +74,23 @@ Aprenda e simule sua saúde financeira com tecnologia e aprendizado de máquina.
 """, unsafe_allow_html=True)
 
 # ===============================
+# 🧾 Explicação sobre o projeto
+# ===============================
+st.markdown("""
+## Sobre o projeto
+
+O EduFin AI Cloud é um aplicativo desenvolvido para ajudar pessoas a entender e melhorar sua saúde financeira.  
+Com base em dados como renda, gastos, dívidas, poupança e investimentos, ele utiliza aprendizado de máquina para estimar o nível de equilíbrio financeiro do usuário e oferecer uma visão mais clara de sua situação econômica.
+
+### Utilidade e importância no mercado de trabalho
+O uso de inteligência artificial em finanças pessoais e corporativas cresce rapidamente.  
+Empresas, bancos e fintechs aplicam essas tecnologias para automatizar análises, prever riscos e personalizar recomendações financeiras.  
+Dominar soluções que unem dados financeiros e modelos de IA é uma habilidade valorizada em áreas como análise de dados, planejamento financeiro e tecnologia.  
+
+Além disso, o aplicativo tem potencial educacional — servindo como ferramenta prática para estudantes e profissionais que desejam compreender na prática como a IA pode ser aplicada em decisões financeiras.
+""")
+
+# ===============================
 # 🧩 Layout principal (duas colunas)
 # ===============================
 with st.container():
@@ -81,51 +98,52 @@ with st.container():
 
     # --- Coluna 1: descrição do projeto ---
     with col1:
-        st.markdown("## 🧠 Como funciona")
+        st.markdown("## Como funciona")
         st.markdown("""
         1. Faça login com seu e-mail.  
         2. Insira seus dados financeiros (renda, gastos, dívidas, etc).  
-        3. A IA analisa e retorna sua **saúde financeira**:
-           - 🔴 Baixa  
-           - 🟡 Média  
-           - 🟢 Alta  
+        3. A IA analisa e retorna sua saúde financeira:
+           - Baixa  
+           - Média  
+           - Alta  
         """)
 
-        st.markdown("## ⚙️ Tecnologias usadas")
+        st.markdown("## Tecnologias usadas")
         st.markdown("""
-        - **Streamlit** → Interface interativa  
-        - **Firebase Auth + Firestore** → Login e banco de dados  
-        - **TensorFlow / Keras** → Rede neural preditiva  
-        - **Scikit-Learn** → Pré-processamento e métricas
+        - Streamlit → Interface interativa  
+        - Firebase Auth + Firestore → Login e banco de dados  
+        - TensorFlow / Keras → Rede neural preditiva  
+        - Scikit-Learn → Pré-processamento e métricas
         """)
 
-        st.markdown("## 📱 Telas do App Android")
+        st.markdown("## Telas do App Android")
         try:
             col_a, col_b = st.columns(2)
             with col_a:
-                st.image("login_screen2.png", caption="🔐 Tela de Login", use_column_width=True)
+                st.image("login_screen2.png", caption="Tela de Login", use_column_width=True)
             with col_b:
-                st.image("main_screen2.png", caption="📊 Tela Principal", use_column_width=True)
+                st.image("main_screen2.png", caption="Tela Principal", use_column_width=True)
         except Exception as e:
-            st.warning(f"⚠️ Erro ao carregar imagens: {e}")
+            st.warning(f"Erro ao carregar imagens: {e}")
 
     # --- Coluna 2: mini simulação ---
     with col2:
-        st.markdown("### 🧩 Mini Simulação — Teste sua Saúde Financeira")
+        st.markdown("### Mini Simulação — Teste sua Saúde Financeira")
 
-        renda = st.slider("💰 Renda mensal (R$)", 500, 20000, 5000)
-        gastos = st.slider("💳 Gastos mensais (R$)", 0, 20000, 3000)
-        dividas = st.slider("📉 Dívidas (R$)", 0, 50000, 1000)
-        poupanca = st.slider("🏦 Poupança (R$)", 0, 50000, 2000)
-        idade = st.slider("🎂 Idade", 18, 80, 30)
-        investimentos = st.slider("📈 Investimentos (R$)", 0, 50000, 1000)
+        renda = st.slider("Renda mensal (R$)", 500, 20000, 5000)
+        gastos = st.slider("Gastos mensais (R$)", 0, 20000, 3000)
+        dividas = st.slider("Dívidas (R$)", 0, 50000, 1000)
+        poupanca = st.slider("Poupança (R$)", 0, 50000, 2000)
+        idade = st.slider("Idade", 18, 80, 30)
+        investimentos = st.slider("Investimentos (R$)", 0, 50000, 1000)
 
         # Mock simples de cálculo de "score"
         score = (renda - gastos - dividas + poupanca + investimentos) / (renda + 1)
 
         if score < 0.3:
-            st.error("🔴 Baixa Saúde Financeira")
+            st.error("Baixa Saúde Financeira")
         elif score < 0.6:
-            st.warning("🟡 Média Saúde Financeira")
+            st.warning("Média Saúde Financeira")
         else:
-            st.success("🟢 Alta Saúde Financeira")
+            st.success("Alta Saúde Financeira")
+
