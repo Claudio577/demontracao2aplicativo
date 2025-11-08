@@ -53,11 +53,8 @@ a:hover {
     text-decoration: underline;
 }
 
-/* Remove o botão transparente fantasma */
-section[data-testid="stSidebar"] + div button[kind="primary"] {
-    display: none !important;
-}
-div[data-testid="stToolbar"] {
+/* Corrige cliques invisíveis no topo */
+[data-testid="stAppViewBlockContainer"] div:empty {
     display: none !important;
 }
 </style>
@@ -68,71 +65,67 @@ div[data-testid="stToolbar"] {
 # ===============================
 st.markdown("""
 <h1 style='text-align:center; margin-bottom: 0;'>💡 EduFin AI Cloud</h1>
-<h4 style='text-align:center; color:#666; margin-top: 6px;'>
+<h4 style='text-align:center; color:#666; margin-top: 8px;'>
 Aplicativo de Inteligência Financeira com IA e Firebase
 </h4>
-<p style='text-align:center; color:#777; font-size: 1.05rem; margin-top: 4px;'>
+<p style='text-align:center; color:#777; margin-top: 6px;'>
 Aprenda e simule sua saúde financeira com tecnologia e aprendizado de máquina.
 </p>
 """, unsafe_allow_html=True)
 
-# (⚠️ Não há nenhum st.markdown vazio entre o título e o container — isso elimina o botão invisível)
-
 # ===============================
 # 🧩 Layout principal (duas colunas)
 # ===============================
-st.markdown('<div class="main-container">', unsafe_allow_html=True)
-col1, col2 = st.columns([1.2, 0.8])
+with st.container():
+    col1, col2 = st.columns([1.2, 0.8])
 
-# --- Coluna 1: descrição do projeto ---
-with col1:
-    st.markdown("## 🧠 Como funciona")
-    st.markdown("""
-    1. Faça login com seu e-mail.  
-    2. Insira seus dados financeiros (renda, gastos, dívidas, etc).  
-    3. A IA analisa e retorna sua **saúde financeira**:
-       - 🔴 Baixa  
-       - 🟡 Média  
-       - 🟢 Alta  
-    """)
+    # --- Coluna 1: descrição do projeto ---
+    with col1:
+        st.markdown("## 🧠 Como funciona")
+        st.markdown("""
+        1. Faça login com seu e-mail.  
+        2. Insira seus dados financeiros (renda, gastos, dívidas, etc).  
+        3. A IA analisa e retorna sua **saúde financeira**:
+           - 🔴 Baixa  
+           - 🟡 Média  
+           - 🟢 Alta  
+        """)
 
-    st.markdown("## ⚙️ Tecnologias usadas")
-    st.markdown("""
-    - **Streamlit** → Interface interativa  
-    - **Firebase Auth + Firestore** → Login e banco de dados  
-    - **TensorFlow / Keras** → Rede neural preditiva  
-    - **Scikit-Learn** → Pré-processamento e métricas
-    """)
+        st.markdown("## ⚙️ Tecnologias usadas")
+        st.markdown("""
+        - **Streamlit** → Interface interativa  
+        - **Firebase Auth + Firestore** → Login e banco de dados  
+        - **TensorFlow / Keras** → Rede neural preditiva  
+        - **Scikit-Learn** → Pré-processamento e métricas
+        """)
 
-    st.markdown("## 📱 Telas do App Android")
-    try:
-        col_a, col_b = st.columns(2)
-        with col_a:
-            st.image("login_screen2.png", caption="🔐 Tela de Login", use_column_width=True)
-        with col_b:
-            st.image("main_screen2.png", caption="📊 Tela Principal", use_column_width=True)
-    except Exception as e:
-        st.warning(f"⚠️ Erro ao carregar imagens: {e}")
+        st.markdown("## 📱 Telas do App Android")
+        try:
+            col_a, col_b = st.columns(2)
+            with col_a:
+                st.image("login_screen2.png", caption="🔐 Tela de Login", use_column_width=True)
+            with col_b:
+                st.image("main_screen2.png", caption="📊 Tela Principal", use_column_width=True)
+        except Exception as e:
+            st.warning(f"⚠️ Erro ao carregar imagens: {e}")
 
-# --- Coluna 2: mini simulação ---
-with col2:
-    st.markdown("### 🧩 Mini Simulação — Teste sua Saúde Financeira")
+    # --- Coluna 2: mini simulação ---
+    with col2:
+        st.markdown("### 🧩 Mini Simulação — Teste sua Saúde Financeira")
 
-    renda = st.slider("💰 Renda mensal (R$)", 500, 20000, 5000)
-    gastos = st.slider("💳 Gastos mensais (R$)", 0, 20000, 3000)
-    dividas = st.slider("📉 Dívidas (R$)", 0, 50000, 1000)
-    poupanca = st.slider("🏦 Poupança (R$)", 0, 50000, 2000)
-    idade = st.slider("🎂 Idade", 18, 80, 30)
-    investimentos = st.slider("📈 Investimentos (R$)", 0, 50000, 1000)
+        renda = st.slider("💰 Renda mensal (R$)", 500, 20000, 5000)
+        gastos = st.slider("💳 Gastos mensais (R$)", 0, 20000, 3000)
+        dividas = st.slider("📉 Dívidas (R$)", 0, 50000, 1000)
+        poupanca = st.slider("🏦 Poupança (R$)", 0, 50000, 2000)
+        idade = st.slider("🎂 Idade", 18, 80, 30)
+        investimentos = st.slider("📈 Investimentos (R$)", 0, 50000, 1000)
 
-    # Mock simples de cálculo de "score"
-    score = (renda - gastos - dividas + poupanca + investimentos) / (renda + 1)
+        # Mock simples de cálculo de "score"
+        score = (renda - gastos - dividas + poupanca + investimentos) / (renda + 1)
 
-    if score < 0.3:
-        st.error("🔴 Baixa Saúde Financeira")
-    elif score < 0.6:
-        st.warning("🟡 Média Saúde Financeira")
-    else:
-        st.success("🟢 Alta Saúde Financeira")
-
-st.markdown('</div>', unsafe_allow_html=True)
+        if score < 0.3:
+            st.error("🔴 Baixa Saúde Financeira")
+        elif score < 0.6:
+            st.warning("🟡 Média Saúde Financeira")
+        else:
+            st.success("🟢 Alta Saúde Financeira")
