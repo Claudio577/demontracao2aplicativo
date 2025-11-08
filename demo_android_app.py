@@ -121,8 +121,3 @@ with col2:
 
 st.markdown('</div>', unsafe_allow_html=True)
 
-# ===============================
-# 📄 Rodapé
-# ===============================
-st.markdown("---")
-st.caption("© 2025 EduFin AI Cloud — Projeto de Demonstração com IA, Firebase e Streamlit")
