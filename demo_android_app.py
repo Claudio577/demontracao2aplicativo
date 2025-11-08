@@ -113,7 +113,7 @@ with col1:
        - 🟢 Alta  
     """)
 
-    st.markdown("##<span style='color:#FF5B6A;'>Tecnologias usadas</span>", unsafe_allow_html=True)
+    st.markdown("## <span style='color:#FF5B6A;'>Tecnologias usadas</span>", unsafe_allow_html=True)
     st.markdown("""
     - **Streamlit** → Interface interativa  
     - **Firebase Auth + Firestore** → Login e banco de dados  
@@ -199,6 +199,42 @@ with col_edu3:
     O layout foi criado com base em **UX visual e cores** para facilitar o entendimento  
     e estimular a interação de alunos e educadores.
     """)
+
+# =====================================
+# 💼 SEÇÃO DE PORTFÓLIO PROFISSIONAL
+# =====================================
+st.markdown("---")
+st.markdown("## 💼 <span style='color:#4B7BE5;'>Sobre o Desenvolvedor</span>", unsafe_allow_html=True)
+st.markdown("""
+**👨‍💻 Autor:** *Claudio Hideki Yoshida*  
+**Função:** *Desenvolvedor de Machine Learning e Criador de Soluções em IA Aplicada*  
+
+Apaixonado por transformar modelos de IA em **ferramentas reais e educativas**, com foco em:
+- **Machine Learning aplicado** a finanças, saúde e educação;  
+- **Prototipagem interativa** com Streamlit, Firebase e FastAPI;  
+- **Análise de dados** e visualização explicativa;  
+- **Criação de MVPs inteligentes** voltados a aprendizado e inovação.
+
+Atua como **AI Solutions Prototyper**, unindo dados, design e tecnologia para demonstrar  
+como a inteligência artificial pode resolver **problemas práticos e sociais**.
+""")
+
+st.markdown("## 🚀 <span style='color:#FF5B6A;'>Tecnologias e Habilidades</span>", unsafe_allow_html=True)
+st.markdown("""
+- **Linguagens:** Python, SQL, Kotlin, HTML/CSS  
+- **Bibliotecas de IA:** Scikit-Learn, TensorFlow, Keras, Transformers  
+- **Ferramentas de Deploy:** Streamlit Cloud, Render, Vercel  
+- **Banco de Dados:** Firebase Firestore, SQLite  
+- **Outros:** FastAPI, Pandas, Matplotlib, Joblib  
+""")
+
+st.markdown("## 🌟 <span style='color:#2ECC71;'>Propósito do Projeto</span>", unsafe_allow_html=True)
+st.markdown("""
+O **EduFin AI Cloud** faz parte de um portfólio de soluções inteligentes criadas para **mostrar o potencial da IA aplicada**.  
+Cada projeto tem como objetivo aproximar **pessoas e instituições** da tecnologia,  
+demonstrando como a inteligência artificial pode gerar **impacto positivo** na educação,  
+nas finanças pessoais e no aprendizado de forma acessível e interativa.
+""")
 
 # =====================================
 # 📄 RODAPÉ
