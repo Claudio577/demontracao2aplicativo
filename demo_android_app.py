@@ -1,5 +1,5 @@
-from PIL import Image
 import streamlit as st
+from PIL import Image
 
 # ===============================
 # ⚙️ Configuração da página
@@ -61,14 +61,15 @@ st.markdown("""
 st.markdown("---")
 st.markdown("### 📱 Telas do Aplicativo")
 
+col1, col2 = st.columns(2)
+
 try:
-    col1, col2 = st.columns(2)
-
-    st.image("login_screen2.png", caption="🔐 Tela de Login — EduFin App", use_column_width=True)
-    st.image("main_screen2.png", caption="📊 Tela Principal — Pós Login", use_column_width=True)
-
-    except Exception as e:
-    st.error(f"⚠️ Erro ao carregar as imagens: {e}")
+    with col1:
+        st.image("login_screen2.png", caption="🔐 Tela de Login — EduFin App", use_column_width=True)
+    with col2:
+        st.image("main_screen2.png", caption="📊 Tela Principal — Pós Login", use_column_width=True)
+except Exception as e:
+    st.warning(f"⚠️ Erro ao carregar as imagens: {e}")
 
 # ===============================
 # 💬 Mini Simulação (demo interativa)
