@@ -73,7 +73,7 @@ def crop_white_borders(img_path):
 # =====================================
 # 🧠 CABEÇALHO PRINCIPAL
 # =====================================
-st.markdown("<h1 style='text-align:center; color:#4B7BE5;'>💡 EduFin AI Cloud</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align:center; color:#4B7BE5;'>EduFin AI Cloud</h1>", unsafe_allow_html=True)
 st.markdown("<h4 style='text-align:center; color:#FF5B6A;'>Inteligência Financeira com IA e Firebase</h4>", unsafe_allow_html=True)
 st.markdown("<p style='text-align:center; color:#777;'>Aprenda e simule sua saúde financeira com tecnologia e aprendizado de máquina.</p>", unsafe_allow_html=True)
 
