@@ -210,4 +210,11 @@ st.markdown("""
 **Função:** *Desenvolvedor de Machine Learning e Criador de Soluções em IA Aplicada*  
 
 **Contato:**  
-📧 [claudio.y@hotmail.co]()
+📧 [claudio.y@hotmail.com](mailto:claudio.y@hotmail.com)  
+📱 [WhatsApp: (11) 98636-4794](https://wa.me/5511986364794)
+
+Atua como **AI Solutions Prototyper**, unindo dados, design e tecnologia para demonstrar
+como a inteligência artificial pode resolver **problemas práticos e sociais**.
+""")
+
+st.caption("© 2025 EduFin AI Cloud — Aplicativo demonstrativo de IA e Educação Financeira | Desenvolvido por Claudio Hideki Yoshida 💡")
