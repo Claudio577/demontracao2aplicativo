@@ -29,19 +29,6 @@ h1, h2, h3, h4 {
     box-shadow: 0 6px 25px rgba(0,0,0,0.06);
     margin-top: 2rem;
 }
-.stButton>button {
-    border-radius: 8px;
-    background-color: #FF5B6A;
-    color: white;
-    border: none;
-    padding: 0.6rem 1rem;
-    font-weight: bold;
-    transition: all 0.3s ease;
-}
-.stButton>button:hover {
-    background-color: #E14B58;
-    transform: translateY(-2px);
-}
 a {
     color: #FF5B6A !important;
     text-decoration: none;
@@ -60,18 +47,13 @@ def crop_white_borders(img_path):
     """Remove automaticamente bordas brancas das imagens."""
     try:
         img = Image.open(img_path)
-        # Cria um fundo baseado no pixel de canto (assumido como branco)
         bg = Image.new(img.mode, img.size, img.getpixel((0, 0)))
-        # Compara a imagem original com o fundo para achar a diferença
         diff = ImageChops.difference(img, bg)
-        # Acha a bounding box do conteúdo diferente (não branco)
         bbox = diff.getbbox()
         if bbox:
-            # Corta a imagem com base na bounding box
             img = img.crop(bbox)
         return img
     except FileNotFoundError:
-        # Mensagem de aviso limpa
         st.warning(f"Imagem não encontrada: {img_path}")
         return None
 
@@ -85,17 +67,16 @@ st.markdown("<p style='text-align:center; color:#777;'>Aprenda e simule sua saú
 # =====================================
 # DESCRIÇÃO E APLICAÇÃO NO MERCADO
 # =====================================
-st.markdown("---")
 st.markdown("## <span style='color:#6C63FF;'>Aplicações e Contexto do Projeto</span>", unsafe_allow_html=True)
 st.markdown("""
 O **EduFin AI Cloud** combina **educação financeira** e **inteligência artificial** para ajudar pessoas e instituições a compreenderem melhor sua **saúde financeira**.
 A aplicação utiliza IA para simular e avaliar o equilíbrio entre **renda, gastos, dívidas e investimentos**, fornecendo um diagnóstico claro e visual.
 
 ### Onde o projeto pode ser aplicado:
-- **Educação e Escolas:** ensino de educação financeira com simulações em tempo real.
-- **Bancos e Fintechs:** criação de módulos de análise de risco e perfis financeiros.
-- **Consultorias Financeiras:** suporte a decisões personalizadas com base em dados.
-- **Projetos Sociais:** conscientização sobre controle de gastos e importância da poupança.
+- **Educação e Escolas:** ensino de educação financeira com simulações em tempo real.  
+- **Bancos e Fintechs:** criação de módulos de análise de risco e perfis financeiros.  
+- **Consultorias Financeiras:** suporte a decisões personalizadas com base em dados.  
+- **Projetos Sociais:** conscientização sobre controle de gastos e importância da poupança.  
 
 O sistema serve tanto como ferramenta **didática** quanto **analítica**, mostrando como a IA pode ser aplicada de forma **acessível e educativa**.
 """)
@@ -110,20 +91,20 @@ col1, col2 = st.columns([1.2, 0.8])
 with col1:
     st.markdown("## <span style='color:#6C63FF;'>Como funciona</span>", unsafe_allow_html=True)
     st.markdown("""
-    1. Faça login com seu e-mail.
-    2. Insira seus dados financeiros (renda, gastos, dívidas, etc).
+    1. Faça login com seu e-mail.  
+    2. Insira seus dados financeiros (renda, gastos, dívidas, etc).  
     3. A IA analisa e retorna sua **saúde financeira**:
-        - Baixa
-        - Média
-        - Alta
+        - Baixa  
+        - Média  
+        - Alta  
     """)
 
     st.markdown("## <span style='color:#FF5B6A;'>Tecnologias usadas</span>", unsafe_allow_html=True)
     st.markdown("""
-    - **Streamlit** → Interface interativa
-    - **Firebase Auth + Firestore** → Login e banco de dados
-    - **TensorFlow / Keras** → Rede neural preditiva
-    - **Scikit-Learn** → Pré-processamento e métricas
+    - **Streamlit** → Interface interativa  
+    - **Firebase Auth + Firestore** → Login e banco de dados  
+    - **TensorFlow / Keras** → Rede neural preditiva  
+    - **Scikit-Learn** → Pré-processamento e métricas  
     """)
 
     st.markdown("## <span style='color:#2ECC71;'>Telas do App Android</span>", unsafe_allow_html=True)
@@ -149,10 +130,8 @@ with col2:
     poupanca = st.slider("Poupança (R$)", 0, 50000, 2000)
     investimentos = st.slider("Investimentos (R$)", 0, 50000, 1000)
 
-    # Cálculo simplificado do score de saúde financeira
     score = (renda - gastos - dividas + poupanca + investimentos) / (renda + 1)
 
-    st.markdown("---")
     st.markdown("<h4 style='color:#3E8E7E;'>Resultado da Simulação</h4>", unsafe_allow_html=True)
 
     if score < 0.3:
@@ -168,9 +147,8 @@ with col2:
 st.markdown('</div>', unsafe_allow_html=True)
 
 # =====================================
-# SEÇÃO EDUCACIONAL — COM GRADIENTE E CORES VIVAS
+# SEÇÃO EDUCACIONAL
 # =====================================
-st.markdown("---")
 st.markdown("""
 <h2 style='
   text-align:center;
@@ -194,8 +172,8 @@ with col_edu1:
 with col_edu2:
     st.markdown("### <span style='color:#FFB703;'>Funcionamento</span>", unsafe_allow_html=True)
     st.warning("""
-    1. O usuário insere dados financeiros.
-    2. O modelo calcula o **índice de saúde**.
+    1. O usuário insere dados financeiros.  
+    2. O modelo calcula o **índice de saúde**.  
     3. O app apresenta **mensagens intuitivas e coloridas**.
     """)
 
@@ -209,16 +187,15 @@ with col_edu3:
 # =====================================
 # SEÇÃO DE PORTFÓLIO PROFISSIONAL
 # =====================================
-st.markdown("---")
 st.markdown("## <span style='color:#4B7BE5;'>Sobre o Desenvolvedor</span>", unsafe_allow_html=True)
 st.markdown("""
-**Autor:** *Claudio Hideki Yoshida*
+**Autor:** *Claudio Hideki Yoshida*  
 **Função:** *Desenvolvedor de Machine Learning e Criador de Soluções em IA Aplicada*
 
 Apaixonado por transformar modelos de IA em **ferramentas reais e educativas**, com foco em:
-- **Machine Learning aplicado** a finanças, saúde e educação;
-- **Prototipagem interativa** com Streamlit, Firebase e FastAPI;
-- **Análise de dados** e visualização explicativa;
+- **Machine Learning aplicado** a finanças, saúde e educação;  
+- **Prototipagem interativa** com Streamlit, Firebase e FastAPI;  
+- **Análise de dados** e visualização explicativa;  
 - **Criação de MVPs inteligentes** voltados a aprendizado e inovação.
 
 Atua como **AI Solutions Prototyper**, unindo dados, design e tecnologia para demonstrar
@@ -227,11 +204,11 @@ como a inteligência artificial pode resolver **problemas práticos e sociais**.
 
 st.markdown("## <span style='color:#FF5B6A;'>Tecnologias e Habilidades</span>", unsafe_allow_html=True)
 st.markdown("""
-- **Linguagens:** Python, SQL, Kotlin, HTML/CSS
-- **Bibliotecas de IA:** Scikit-Learn, TensorFlow, Keras, Transformers
-- **Ferramentas de Deploy:** Streamlit Cloud, Render, Vercel
-- **Banco de Dados:** Firebase Firestore, SQLite
-- **Outros:** FastAPI, Pandas, Matplotlib, Joblib
+- **Linguagens:** Python, SQL, Kotlin, HTML/CSS  
+- **Bibliotecas de IA:** Scikit-Learn, TensorFlow, Keras, Transformers  
+- **Ferramentas de Deploy:** Streamlit Cloud, Render, Vercel  
+- **Banco de Dados:** Firebase Firestore, SQLite  
+- **Outros:** FastAPI, Pandas, Matplotlib, Joblib  
 """)
 
 st.markdown("## <span style='color:#2ECC71;'>Propósito do Projeto</span>", unsafe_allow_html=True)
@@ -243,7 +220,14 @@ nas finanças pessoais e no aprendizado de forma acessível e interativa.
 """)
 
 # =====================================
-# RODAPÉ
+# RODAPÉ COM CONTATO
 # =====================================
-st.markdown("---")
-st.caption("© 2025 EduFin AI Cloud — Projeto de Demonstração com IA, Firebase e Streamlit")
+st.markdown("""
+<h3 style='text-align:center; color:#4B7BE5;'>📩 Contato</h3>
+<p style='text-align:center;'>
+    <b>E-mail:</b> <a href='mailto:claudio.y@hotmail.com'>claudio.y@hotmail.com</a><br>
+    <b>WhatsApp:</b> <a href='https://wa.me/5511986364794' target='_blank'>(11) 98636-4794</a>
+</p>
+""", unsafe_allow_html=True)
+
+st.caption("© 2025 EduFin AI Cloud — Projeto de Demonstração com IA, Firebase e Streamlit | Desenvolvido por Claudio Hideki Yoshida 💡")
