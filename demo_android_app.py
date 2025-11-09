@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 # =====================================
-# ESTILO VISUAL DRIBBBLE + CORES ALEGRES
+# ESTILO VISUAL DRIBBBLE + CORES ALEGRES (SEM BARRA SUPERIOR)
 # =====================================
 st.markdown("""
 <style>
@@ -18,6 +18,9 @@ body {
     background-color: #f8f9fb;
     color: #222;
     font-family: 'Poppins', sans-serif;
+}
+header, [data-testid="stHeader"] {
+    display: none;
 }
 h1, h2, h3, h4 {
     font-weight: 600;
@@ -57,19 +60,33 @@ def crop_white_borders(img_path):
         st.warning(f"Imagem não encontrada: {img_path}")
         return None
 
+
 # =====================================
-# CABEÇALHO PRINCIPAL
+# CABEÇALHO E APRESENTAÇÃO PESSOAL
 # =====================================
 st.markdown("<h1 style='text-align:center; color:#4B7BE5;'>EduFin AI Cloud</h1>", unsafe_allow_html=True)
-st.markdown("<h4 style='text-align:center; color:#FF5B6A;'>Inteligência Financeira com IA e Firebase</h4>", unsafe_allow_html=True)
-st.markdown("<p style='text-align:center; color:#777;'>Aprenda e simule sua saúde financeira com tecnologia e aprendizado de máquina.</p>", unsafe_allow_html=True)
+st.markdown("<h4 style='text-align:center; color:#FF5B6A;'>Aplicativo de Inteligência Financeira com IA e Firebase</h4>", unsafe_allow_html=True)
+st.markdown("<p style='text-align:center; color:#777;'>Um aplicativo educacional que une tecnologia e aprendizado de máquina para ensinar finanças de forma prática e interativa.</p>", unsafe_allow_html=True)
+
+# Apresentação pessoal no topo
+st.markdown("""
+### 👨‍💻 Sobre o Desenvolvedor  
+Sou **estudante e desenvolvedor na área de Inteligência Artificial aplicada (Machine Learning)**,  
+atualmente atuando em projetos de **IA Educacional, FinTech e Blockchain Inteligente**.
+
+No **curso em Machine Learning**, desenvolvo **protótipos funcionais** que conectam modelos de IA  
+a sistemas reais, utilizando ferramentas como **Streamlit, Firebase, TensorFlow e Scikit-Learn**.
+
+O **EduFin AI Cloud** é um **aplicativo desenvolvido nessa área**, unindo **IA aplicada e educação financeira**,  
+mostrando como a tecnologia pode ser usada para **ensinar, simular e orientar decisões financeiras** de forma acessível.
+""")
 
 # =====================================
 # DESCRIÇÃO E APLICAÇÃO NO MERCADO
 # =====================================
 st.markdown("## <span style='color:#6C63FF;'>Aplicações e Contexto do Projeto</span>", unsafe_allow_html=True)
 st.markdown("""
-O **EduFin AI Cloud** combina **educação financeira** e **inteligência artificial** para ajudar pessoas e instituições a compreenderem melhor sua **saúde financeira**.
+O **EduFin AI Cloud** combina **educação financeira** e **inteligência artificial** para ajudar pessoas e instituições a compreenderem melhor sua **saúde financeira**.  
 A aplicação utiliza IA para simular e avaliar o equilíbrio entre **renda, gastos, dívidas e investimentos**, fornecendo um diagnóstico claro e visual.
 
 ### Onde o projeto pode ser aplicado:
@@ -185,49 +202,12 @@ with col_edu3:
     """)
 
 # =====================================
-# SEÇÃO DE PORTFÓLIO PROFISSIONAL
+# SEÇÃO DE PORTFÓLIO PROFISSIONAL + CONTATO
 # =====================================
 st.markdown("## <span style='color:#4B7BE5;'>Sobre o Desenvolvedor</span>", unsafe_allow_html=True)
 st.markdown("""
 **Autor:** *Claudio Hideki Yoshida*  
-**Função:** *Desenvolvedor de Machine Learning e Criador de Soluções em IA Aplicada*
+**Função:** *Desenvolvedor de Machine Learning e Criador de Soluções em IA Aplicada*  
 
-Apaixonado por transformar modelos de IA em **ferramentas reais e educativas**, com foco em:
-- **Machine Learning aplicado** a finanças, saúde e educação;  
-- **Prototipagem interativa** com Streamlit, Firebase e FastAPI;  
-- **Análise de dados** e visualização explicativa;  
-- **Criação de MVPs inteligentes** voltados a aprendizado e inovação.
-
-Atua como **AI Solutions Prototyper**, unindo dados, design e tecnologia para demonstrar
-como a inteligência artificial pode resolver **problemas práticos e sociais**.
-""")
-
-st.markdown("## <span style='color:#FF5B6A;'>Tecnologias e Habilidades</span>", unsafe_allow_html=True)
-st.markdown("""
-- **Linguagens:** Python, SQL, Kotlin, HTML/CSS  
-- **Bibliotecas de IA:** Scikit-Learn, TensorFlow, Keras, Transformers  
-- **Ferramentas de Deploy:** Streamlit Cloud, Render, Vercel  
-- **Banco de Dados:** Firebase Firestore, SQLite  
-- **Outros:** FastAPI, Pandas, Matplotlib, Joblib  
-""")
-
-st.markdown("## <span style='color:#2ECC71;'>Propósito do Projeto</span>", unsafe_allow_html=True)
-st.markdown("""
-O **EduFin AI Cloud** faz parte de um portfólio de soluções inteligentes criadas para **mostrar o potencial da IA aplicada**.
-Cada projeto tem como objetivo aproximar **pessoas e instituições** da tecnologia,
-demonstrando como a inteligência artificial pode gerar **impacto positivo** na educação,
-nas finanças pessoais e no aprendizado de forma acessível e interativa.
-""")
-
-# =====================================
-# RODAPÉ COM CONTATO
-# =====================================
-st.markdown("""
-<h3 style='text-align:center; color:#4B7BE5;'>📩 Contato</h3>
-<p style='text-align:center;'>
-    <b>E-mail:</b> <a href='mailto:claudio.y@hotmail.com'>claudio.y@hotmail.com</a><br>
-    <b>WhatsApp:</b> <a href='https://wa.me/5511986364794' target='_blank'>(11) 98636-4794</a>
-</p>
-""", unsafe_allow_html=True)
-
-st.caption("© 2025 EduFin AI Cloud — Projeto de Demonstração com IA, Firebase e Streamlit | Desenvolvido por Claudio Hideki Yoshida 💡")
+**Contato:**  
+📧 [claudio.y@hotmail.co]()
