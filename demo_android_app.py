@@ -70,7 +70,7 @@ st.markdown("<p style='text-align:center; color:#777;'>Um aplicativo educacional
 
 # Apresentação pessoal no topo
 st.markdown("""
-### 👨‍💻 Sobre o Desenvolvedor  
+### Sobre o Desenvolvedor  
 Sou **estudante e desenvolvedor na área de Inteligência Artificial aplicada (Machine Learning)**,  
 atualmente atuando em projetos de **IA Educacional, FinTech e Blockchain Inteligente**.
 
